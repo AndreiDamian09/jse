@@ -1,19 +1,14 @@
 package eu.deic.oop;
 
-public class GameCharacter {
+public class GameCharacter extends Entity{
     int healthPoints;
     String name;
     boolean hasWeapon;
     int[] costs;
 
 
-    public GameCharacter(){
-        this.healthPoints=0;
-        this.name="";
-        this.hasWeapon=false;
-    }
-
     public GameCharacter(int healthPoints, String name, boolean hasWeapon,int[] costs) {
+        super(0);
         this.healthPoints = healthPoints;
         this.name = name;
         this.hasWeapon = hasWeapon;
@@ -50,9 +45,7 @@ public class GameCharacter {
 
     public int[] getCosts() {
         int[] copy=new int[this.costs.length];
-        for(int i=0;i<costs.length;i++){
-            copy[i]=this.costs[i];
-        }
+        System.arraycopy(this.costs, 0, copy, 0, costs.length);
         return copy;
     }
 
@@ -66,8 +59,11 @@ public class GameCharacter {
     @Override
     public String toString() {
 
-        String display="Name : " + this.name +" " +  "hp : " + this.healthPoints;
+        return "Name : " + this.name +" " +  "hp : " + this.healthPoints;
+    }
 
-        return display;
+    @Override
+    public void something() {
+
     }
 }

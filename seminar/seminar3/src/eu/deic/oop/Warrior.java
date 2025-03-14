@@ -1,6 +1,8 @@
 package eu.deic.oop;
 
-public class Warrior extends GameCharacter{
+import eu.deic.oop.interfaces.Attackable;
+
+public class Warrior extends GameCharacter implements Attackable {
 
     Weapon weapon;
 
@@ -13,7 +15,16 @@ public class Warrior extends GameCharacter{
     @Override
     public String toString() {
 
-        String display="Warrior-ul : " + this.name +  " hp : " + this.healthPoints + " si folosesc " +this.weapon.name;
-        return display;
+        return "Warrior : " + this.name +  " hp : " + this.healthPoints + " and is currently using " + this.weapon.name;
+    }
+
+    @Override
+    public void attack() {
+        System.out.println("atttttaaaaackkkkk");
+    }
+
+    @Override
+    public void something() {
+
     }
 }
