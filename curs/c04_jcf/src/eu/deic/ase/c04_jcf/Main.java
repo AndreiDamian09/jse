@@ -1,10 +1,7 @@
 package eu.deic.ase.c04_jcf;
 
 import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Main {
 
@@ -48,7 +45,20 @@ List<Movie> movieLibrary=new ArrayList<>();
 
         movieLibrary.sort(Comparator.naturalOrder());
 
+        Cinema c1 = new Cinema(1,"c1");
+        Cinema c2 = new Cinema(2,"c2");
 
+        TreeMap<Movie,Cinema>treeMapMovie = new TreeMap<>();
+        treeMapMovie.put(movieLibrary.get(0),c1);
+        treeMapMovie.put(movieLibrary.get(1),c1);
+        treeMapMovie.put(movieLibrary.get(2),c1);
 
+        Set<Movie> keySet=treeMapMovie.keySet();
+        Iterator<Movie> iterator= keySet.iterator();
+
+        for(;iterator.hasNext();){
+            Movie m = iterator.next();
+            System.out.println(m+ ": " +treeMapMovie.get(m));
+        }
         }
 }
